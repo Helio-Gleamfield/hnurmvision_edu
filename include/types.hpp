@@ -22,7 +22,7 @@ struct CameraCalibration {
 struct SensorData {
   cv::Mat image;  // CV_8UC3，BGR，独立拥有像素内存
   TimePoint timestamp{};
-  Eigen::Quaterniond imu_q = Eigen::Quaterniond::Identity();
+  Eigen::Quaterniond imu_q = Eigen::Quaterniond::Identity();  // 云台 FLU -> 稳定 FLU
   double bullet_speed = 0;  // m/s
 };
 
@@ -44,7 +44,7 @@ struct Target {
 struct Command {
   bool control = false;
   bool shoot = false;
-  double yaw = 0;
-  double pitch = 0;
+  double yaw = 0;    // 稳定系绝对偏航，左转为正
+  double pitch = 0;  // 稳定系绝对仰角，向上为正；线上 pitch 符号相反
 };
 }  // namespace training

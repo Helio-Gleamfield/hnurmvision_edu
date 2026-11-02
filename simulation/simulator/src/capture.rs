@@ -75,9 +75,6 @@ pub fn setup_capture_camera(world: &mut World) {
 #[derive(Component)]
 pub struct PreviewCamera;
 
-#[derive(Component)]
-pub struct PreviewImageNode;
-
 pub fn setup_preview_window(world: &mut World) {
     let preview_enabled = world
         .resource::<crate::config::SimulationConfig>()
@@ -87,37 +84,29 @@ pub fn setup_preview_window(world: &mut World) {
         return;
     }
 
-    let render_target_handle = world.resource::<ImageHandle>().0.clone();
+    let fov = world.resource::<CameraFov>().0;
     let preview_camera_exists = {
         let mut query = world.query_filtered::<Entity, With<PreviewCamera>>();
         query.iter(world).next().is_some()
     };
     if !preview_camera_exists {
         world.spawn((
-            Camera2d::default(),
+            // Render the real scene directly to the window. The sensor image stays
+            // off-screen for ROS2/Talos capture and is not used as a UI background.
+            Camera3d::default(),
+            Tonemapping::None,
             Camera {
                 order: 1,
                 ..default()
             },
-            PreviewCamera,
-        ));
-    }
-
-    let preview_node_exists = {
-        let mut query = world.query_filtered::<Entity, With<PreviewImageNode>>();
-        query.iter(world).next().is_some()
-    };
-    if !preview_node_exists {
-        world.spawn((
-            Node {
-                width: Val::Percent(100.0),
-                height: Val::Percent(100.0),
+            Projection::Perspective(PerspectiveProjection {
+                fov,
+                near: 0.1,
+                far: 10000.0,
                 ..default()
-            },
-            // Render as a background; help text UI remains on top.
-            GlobalZIndex(-1),
-            ImageNode::new(render_target_handle),
-            PreviewImageNode,
+            }),
+            Msaa::Off,
+            PreviewCamera,
         ));
     }
 }
@@ -129,10 +118,27 @@ pub fn copy_transform(target: &Transform, our: &mut Transform) {
 }
 
 pub fn sync_capture_camera(
+    time: Res<Time>,
     target: Single<&Transform, (With<CaptureSource>, Without<CaptureCamera>)>,
     mut our: Single<&mut Transform, (With<CaptureCamera>, Without<CaptureSource>)>,
+    mut preview: Query<
+        &mut Transform,
+        (With<PreviewCamera>, Without<CaptureSource>, Without<CaptureCamera>),
+    >,
+    mut last_log: Local<f32>,
 ) {
     copy_transform(&target, &mut our);
+    for mut transform in &mut preview {
+        copy_transform(&target, &mut transform);
+    }
+    if std::env::var_os("DAEDALUS_CAMERA_DIAGNOSTICS").is_some()
+        && time.elapsed_secs() - *last_log >= 1.0
+    {
+        *last_log = time.elapsed_secs();
+        info!(target: "daedalus::camera_diagnostics",
+            "CAMERA_STATE t={:.3} position={:?} forward={:?}",
+            time.elapsed_secs(), target.translation, target.forward());
+    }
 }
 
 #[derive(Clone, Copy, Debug)]

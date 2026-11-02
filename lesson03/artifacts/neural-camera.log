@@ -1,0 +1,32 @@
+[IO Open] /training_io ready: /image_raw + /vision_receive_data -> /vision_send_data
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+[IO Read] loops=100 frames=89 input=ready
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+[IO Read] loops=200 frames=173 input=ready
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+[IO Read] loops=300 frames=263 input=waiting
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+[IO Read] loops=400 frames=350 input=ready
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+[IO Read] loops=500 frames=444 input=ready
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+[IO Read] loops=600 frames=530 input=ready
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+yaw=-90 deg pitch=25 deg bullet_speed=25 m/s
+[IO Close] stop published; ROS2 resources released
+{"frames":587,"frames_with_detection":587}

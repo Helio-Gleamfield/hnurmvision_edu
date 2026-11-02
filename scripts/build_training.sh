@@ -2,7 +2,7 @@
 set -eo pipefail
 REPO_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 SIM_ROOT="$REPO_ROOT/simulation"
-source /opt/ros/humble/setup.bash
+source "${RM_ROS_SETUP:-/opt/ros/humble/setup.bash}"
 cd "$SIM_ROOT"
 colcon --log-base log build --base-paths ros2 --build-base build_interfaces --install-base install_interfaces --cmake-args -DPython3_EXECUTABLE=/usr/bin/python3 -DPYTHON_EXECUTABLE=/usr/bin/python3
 source "$SIM_ROOT/install_interfaces/setup.bash"

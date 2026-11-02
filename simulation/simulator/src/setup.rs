@@ -77,6 +77,17 @@ pub fn setup(
     ));
 
     if config.training.enabled {
+        // The arena's mesh collider is created asynchronously. The dynamic observer
+        // can fall through before it is ready, taking both cameras below the map.
+        // Keep a small, immediately available support under the classroom spawn.
+        commands.spawn((
+            Name::new("TRAINING_OBSERVER_SUPPORT_FLOOR"),
+            Transform::from_xyz(config.training.observer[0], -0.285, config.training.observer[2]),
+            RigidBody::Static,
+            Collider::cuboid(3.2, 0.08, 3.2),
+            layer_env,
+            Friction::new(0.5),
+        ));
         commands.spawn((
             Name::new("TRAINING_TARGET_FLAT_FLOOR"),
             Mesh3d(meshes.add(Cuboid::new(3.2, 0.08, 3.2))),

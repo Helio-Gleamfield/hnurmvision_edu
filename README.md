@@ -1,5 +1,7 @@
 # 跃鹿战队算法组二阶段培训与考核
 
+第三讲已完成 OpenCV 与 YOLO26-Pose 双路线实现。**[第三讲完整作业、权重、训练曲线与运行录屏](lesson03/README.md)**。
+
 本仓库是面向学员的自瞄教学骨架。
 
 ## 目录结构
@@ -90,7 +92,10 @@ simulation/simulator/bin/daedalus
 ./scripts/run_training.sh
 ```
 
-该脚本使用 `configs/simulation.yaml` 启动 `build/training`。初始骨架等待输入，按 Ctrl+C 退出；此时没有图像窗口和 ROS2 通信。
+该脚本使用 `configs/simulation.yaml` 启动 `build/training`。第二讲已实现 ROS2 通信和图像显示，
+无输入时短暂等待，按 Ctrl+C 退出。具体实现、测试、思考题与录屏入口见
+[第二讲 IO 作业说明](docs/lesson02_io.md)。使用本机隔离依赖时，可用
+`bash scripts/lesson02.sh build`、`bash scripts/lesson02.sh test` 和 `bash scripts/lesson02.sh demo`。
 
 
 ### 退出

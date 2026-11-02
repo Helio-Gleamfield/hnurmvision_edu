@@ -22,3 +22,11 @@
 
 # Local simulation diagnostics
 /simulation/outputs/
+
+# Lesson03 local datasets, environments and intermediate video
+lesson03/runs/
+lesson03/build/
+*.avi
+.venv*/
+__pycache__/
+!lesson03/artifacts/*.log

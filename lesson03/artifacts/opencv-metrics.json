@@ -1,0 +1,8 @@
+{
+  "metric": "class-agnostic bbox IoU>=0.5; greedy matching",
+  "tp": 60,
+  "fp": 174,
+  "fn": 342,
+  "precision": 0.2564102564102564,
+  "recall": 0.14925373134328357
+}

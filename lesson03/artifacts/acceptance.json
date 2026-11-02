@@ -1,0 +1,63 @@
+{
+  "status": "PASS_WITH_DOCUMENTED_LIMITS",
+  "opencv_camera": {
+    "frames": 491,
+    "frames_with_detection": 491
+  },
+  "neural_camera": {
+    "frames": 587,
+    "frames_with_detection": 587
+  },
+  "neural_holdout_video": {
+    "frames": 60,
+    "frames_with_detection": 28,
+    "instances": 53
+  },
+  "real_validation_metrics": {
+    "box_map50": 0.5116539328613741,
+    "box_map50_95": 0.31029981419676234,
+    "pose_map50": 0.42646479952641286,
+    "pose_map50_95": 0.39857515147081213,
+    "precision": 0.45003732042330696,
+    "recall": 0.50630321028254,
+    "class_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "class_box_map50_95": [
+      0.3221656013720442,
+      0.2117205401770128,
+      0.1667929871401581,
+      0.17017644763514977,
+      0.1569708442967982,
+      0.6460074844806234,
+      0.49916282943436335,
+      0.34321336852727796,
+      0.14084209119239105,
+      0.1840553645800997,
+      0.3095210895573811,
+      0.21841498297240564,
+      0.5528859800507253,
+      0.42226778733824133
+    ]
+  },
+  "limits": [
+    "small dataset",
+    "same-scene simulator adaptation",
+    "only front B3 simulator annotation",
+    "OpenCV real-data recall limited"
+  ],
+  "github_branch": "codex/lesson03-dual-detectors"
+}
