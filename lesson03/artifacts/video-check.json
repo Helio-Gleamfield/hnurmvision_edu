@@ -1,0 +1,15 @@
+{
+  "source": "/home/helio/视频/录屏/录屏 2026年11月07日 22时53分37秒.webm",
+  "submission": "/home/helio/RM_Lesson03_Submission_20261107/01_OpenCV录屏.mp4",
+  "duration_seconds": 15.63,
+  "container": "MP4",
+  "codec": "H.264",
+  "pixel_format": "yuv420p",
+  "width": 2560,
+  "height": 1600,
+  "decode_all_frames": "PASS",
+  "source_duration_seconds": 15.596330944,
+  "source_preserved": true,
+  "visual_review": "Sampled source at 0/2/4/6/8/10/12/14 seconds; detection overlay visible and camera angle/viewpoint change observed. No launch sequence included.",
+  "sha256": "810f97ed0616d60cbd8fc3ea90fc96abed86f0573a4e35e89e60e97e530e270f"
+}

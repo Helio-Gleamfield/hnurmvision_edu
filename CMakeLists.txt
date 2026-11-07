@@ -15,7 +15,7 @@ target_link_libraries(training_io Eigen3::Eigen yaml-cpp ${OpenCV_LIBS})
 ament_target_dependencies(training_io rclcpp sensor_msgs hnurm_interfaces)
 target_compile_options(training_io PRIVATE -Wall -Wextra -Wpedantic)
 add_library(training_lessons lessons/lesson02_io.cpp
- lessons/lesson03_detection.cpp lessons/lesson03_neural.cpp lessons/lesson04_tracking.cpp
+ lessons/lesson03_detection.cpp lessons/lesson04_tracking.cpp
  lessons/lesson05_aiming.cpp)
 target_link_libraries(training_lessons PUBLIC training_io)
 target_compile_options(training_lessons PRIVATE -Wall -Wextra -Wpedantic)

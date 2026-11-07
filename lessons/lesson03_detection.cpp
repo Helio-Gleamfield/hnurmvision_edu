@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <cmath>
-#include <cstdlib>
 #include <opencv2/imgproc.hpp>
 #include <stdexcept>
 #include <string>
@@ -107,10 +106,7 @@ std::vector<Armor> detect_opencv(const cv::Mat& image) {
   return result;
 }
 std::vector<Armor> lesson03_detection(const cv::Mat& image) {
-  const char* backend = std::getenv("RM_DETECTOR");
-  if (!backend || std::string(backend) == "opencv") return detect_opencv(image);
-  if (std::string(backend) == "neural") return detect_neural(image);
-  throw std::invalid_argument("RM_DETECTOR must be opencv or neural");
+  return detect_opencv(image);
 }
 cv::Mat draw_armors(const cv::Mat& image, const std::vector<Armor>& armors) {
   cv::Mat canvas = image.clone();

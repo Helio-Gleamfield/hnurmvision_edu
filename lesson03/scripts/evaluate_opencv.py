@@ -1,4 +1,4 @@
-"""Class-agnostic greedy IoU=0.5 evaluation; this is not the YOLO mAP metric."""
+"""Class-agnostic greedy IoU=0.5 evaluation; this measures geometric detection precision and recall."""
 import argparse,json
 from pathlib import Path
 from PIL import Image
