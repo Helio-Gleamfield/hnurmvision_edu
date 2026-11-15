@@ -559,6 +559,7 @@ impl Plugin for ROS2Plugin {
         let points_per_publish =
             ((sim_config.livox_ros.points_per_second as f32) / publish_freq).max(1.0) as usize;
 
+        let lesson04_truth=app.world().resource::<TopicPublisher<Lesson04TruthTopic>>().clone();
         app.insert_resource(RoboMasterClock(clock.clone()))
             .insert_resource(StopSignal(signal_arc.clone()))
             .insert_resource(FireRateLimiter(AverageRateLimiter::from_hz(10.0)))
@@ -573,6 +574,7 @@ impl Plugin for ROS2Plugin {
                     publish_compressed: false,
                     noise_sigma: sim_config.vision.noise_sigma,
                     camera_info,
+                    lesson04_truth,
                     image_raw,
                     image_compressed,
                 },

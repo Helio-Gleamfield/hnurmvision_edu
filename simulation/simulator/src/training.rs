@@ -59,11 +59,29 @@ pub fn spawn(commands: &mut Commands, assets: &AssetServer, c: &TrainingConfig) 
 
 pub fn move_targets(
     time: Res<Time<Fixed>>, config: Res<SimulationConfig>,
-    board: Option<Res<Board>>,
+    mut board: Option<ResMut<Board>>,
+    mut initialized: Local<bool>,
+    mut observer: Query<(&mut Position,&mut Rotation,&mut LinearVelocity,&mut AngularVelocity),(With<Controlled>,With<Infantry>,Without<TrainingTarget>)>,
+    mut fixed_observer: Local<Option<(Vec3,Quat)>>,
     mut targets: Query<(&TrainingTarget, &mut Position, &mut Rotation, &mut LinearVelocity, &mut AngularVelocity, &mut Visibility)>,
     mut last_log: Local<f64>,
 ) {
     if !config.training.enabled { return; }
+    if !*initialized {
+        if let Some(b)=board.as_deref_mut() {
+            match std::env::var("RM_LESSON04_SCENARIO").as_deref() {
+                Ok("translation")=>b.0.selected=1, Ok("static")=>b.0.selected=0, _=>{}
+            }
+        }
+        *initialized=true;
+    }
+    if std::env::var("RM_LESSON04_FIXED_OBSERVER").as_deref()==Ok("1") {
+        for (mut p,mut r,mut v,mut w) in observer.iter_mut() {
+            if time.elapsed_secs_f64()>1.5 {
+                let fixed=fixed_observer.get_or_insert((p.0,r.0));p.0=fixed.0;r.0=fixed.1;v.0=Vec3::ZERO;w.0=Vec3::ZERO;
+            }
+        }
+    }
     let t = time.elapsed_secs_f64();
     let c = &config.training;
     let selected = board.as_deref().map_or(0, |b| b.0.selected);

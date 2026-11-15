@@ -1,0 +1,24 @@
+{
+  "camera_world_bevy": [
+    -10.05861759185791,
+    0.14387474954128265,
+    -0.05079104006290436
+  ],
+  "gimbal_world_bevy": [
+    -10.195996284484863,
+    -0.008703900501132011,
+    -0.04877421259880066
+  ],
+  "gimbal_quat_bevy_xyzw": [
+    -0.15304596722126007,
+    -0.6903454661369324,
+    -0.1530459076166153,
+    0.6903455853462219
+  ],
+  "camera_to_gimbal_translation_flu_m": [
+    0.06002484549351345,
+    0.002016796436704742,
+    0.19634196667204468
+  ],
+  "method": "Rigid camera extrinsic: inverse gimbal rotation applied to camera minus gimbal positions, then Bevy-to-FLU alignment. No target positions used."
+}

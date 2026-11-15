@@ -84,7 +84,13 @@ std::vector<Armor> detect_opencv(const cv::Mat& image) {
           middle = true;
       if (middle) continue;
       Armor a;
-      a.corners = {l.top, r.top, r.bottom, l.bottom};
+      // The 135/225 mm mechanical model spans OUTER lamp edges, not center lines.
+      // Match those physical points using the measured strip half-widths.
+      auto left_axis=(l.bottom-l.top)/l.length;
+      auto right_axis=(r.bottom-r.top)/r.length;
+      cv::Point2f left_out(left_axis.y*l.width*.5f,-left_axis.x*l.width*.5f);
+      cv::Point2f right_out(right_axis.y*r.width*.5f,-right_axis.x*r.width*.5f);
+      a.corners = {l.top-left_out, r.top+right_out, r.bottom+right_out, l.bottom-left_out};
       a.large_armor = ratio > 3.2;
       a.class_id = -1;
       // Geometric quality score, not a calibrated neural probability.

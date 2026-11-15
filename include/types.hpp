@@ -3,6 +3,7 @@
 #include <opencv2/core.hpp>
 #include <array>
 #include <chrono>
+#include <cstdint>
 
 namespace training {
 using Clock = std::chrono::steady_clock;
@@ -24,6 +25,7 @@ struct SensorData {
   TimePoint timestamp{};
   Eigen::Quaterniond imu_q = Eigen::Quaterniond::Identity();  // 云台 FLU -> 稳定 FLU
   double bullet_speed = 0;  // m/s
+  std::int64_t acquisition_ros_ns = 0;  // exact image header stamp for evaluation only
 };
 
 // 第三讲输出：一块装甲板的图像观测。

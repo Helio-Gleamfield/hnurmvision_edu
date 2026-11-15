@@ -1,0 +1,30 @@
+{
+  "00-overview-18s.mp4": {
+    "status": "PASS",
+    "duration_hms": "00:00:18.00",
+    "bytes": 1413321,
+    "decoded_all_frames": true,
+    "stream": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt470bg/bt709/bt709, progressive), 1102x772 [SAR 1:1 DAR 551:386], 626 kb/s, 12 fps, 12 tbr, 12288 tbn (default)"
+  },
+  "01-static-pnp.mp4": {
+    "status": "PASS",
+    "duration_hms": "00:00:20.13",
+    "bytes": 1240187,
+    "decoded_all_frames": true,
+    "stream": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1080x810 [SAR 1:1 DAR 4:3], 491 kb/s, 15 fps, 15 tbr, 15360 tbn (default)"
+  },
+  "02-translation-250ms.mp4": {
+    "status": "PASS",
+    "duration_hms": "00:00:20.13",
+    "bytes": 1210540,
+    "decoded_all_frames": true,
+    "stream": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1080x810 [SAR 1:1 DAR 4:3], 479 kb/s, 15 fps, 15 tbr, 15360 tbn (default)"
+  },
+  "03-camera-overview-18s.mp4": {
+    "status": "PASS",
+    "duration_hms": "00:00:18.00",
+    "bytes": 1092375,
+    "decoded_all_frames": true,
+    "stream": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1080x810 [SAR 1:1 DAR 4:3], 483 kb/s, 15 fps, 15 tbr, 15360 tbn (default)"
+  }
+}

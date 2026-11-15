@@ -1,0 +1,22 @@
+pose_error_m:
+  count: 780
+  mean: 0.027396178209622767
+  median: 0.029629819908470866
+  p95: 0.051706450691183098
+  max: 0.054911923075498956
+orientation_error_deg:
+  count: 780
+  mean: 1.5620684146046528
+  median: 1.4217163562404274
+  p95: 3.9277593920056089
+  max: 6.2466704029409952
+delayed_prediction_error_m:
+  count: 768
+  mean: 0.055514754001879364
+  median: 0.060102456686238266
+  p95: 0.08805650473944919
+  max: 0.13626222857778947
+unmatched_frames: 0
+invalid_truth_messages: 0
+unevaluable_forecasts: 0
+evaluation_method: Exact image stamp; independent rendered marker geometry; wait for timestamp bracket at t+horizon; interpolate only after future frames arrive

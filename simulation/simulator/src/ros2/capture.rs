@@ -10,7 +10,7 @@ use crate::capture::{
 };
 use crate::dataset::prelude::DatasetSnapshotCreator;
 use crate::ros2::image::compress_image;
-use crate::ros2::topic::{CameraInfoTopic, ImageCompressedTopic, ImageRawTopic, TopicPublisher};
+use crate::ros2::topic::{CameraInfoTopic, ImageCompressedTopic, ImageRawTopic, TopicPublisher, Lesson04TruthTopic};
 use crate::systems::GameplaySystems;
 use bevy::ecs::world::DeferredWorld;
 use bevy::prelude::*;
@@ -22,6 +22,7 @@ use std::cell::RefCell;
 use std::sync::{Arc, Mutex};
 
 struct RosSnapshotSync {
+    truth: serde_json::Value,
     stamp: RefCell<r2r::builtin_interfaces::msg::Time>,
 }
 
@@ -35,6 +36,7 @@ impl SnapshotSync for RosSnapshotSync {
         // by the capture plugin exist; the sensor-noise setting travels in the context.
         let ctx = world.resource::<RosCaptureContextShared>().0.clone();
         Box::new(RosSnapshot {
+            truth: self.truth,
             stamp: self.stamp,
             ctx,
         })
@@ -42,6 +44,7 @@ impl SnapshotSync for RosSnapshotSync {
 }
 
 struct RosSnapshot {
+    truth: serde_json::Value,
     stamp: RefCell<r2r::builtin_interfaces::msg::Time>,
     ctx: Arc<RosCaptureContext>,
 }
@@ -73,6 +76,12 @@ impl SnapshotAsync for RosSnapshot {
             stamp: self.stamp.take(),
             frame_id: "camera_optical_frame".to_string(),
         };
+        let mut truth=self.truth.clone();
+        truth["stamp_sec"]=serde_json::json!(optical_frame_hdr.stamp.sec);
+        truth["stamp_nanosec"]=serde_json::json!(optical_frame_hdr.stamp.nanosec);
+        if truth.get("plates").is_some() {
+            self.ctx.lesson04_truth.publish(r2r::std_msgs::msg::String {data:truth.to_string()});
+        }
         self.ctx.camera_info.publish(ros_camera_info(
             optical_frame_hdr.clone(),
             frame.width,
@@ -104,6 +113,7 @@ impl GpuCaptureHandler for RosSnapshotCreator {
     fn captured(&self, world: &World) -> Option<Box<dyn SnapshotSync>> {
         let clock = world.resource::<RosCaptureContext>();
         Some(Box::new(RosSnapshotSync {
+            truth: world.resource::<super::lesson04_truth::Lesson04Truth>().0.clone(),
             stamp: RefCell::new(Clock::to_builtin_time(
                 &clock.clock.lock().unwrap().get_now().unwrap(),
             )),
@@ -123,6 +133,7 @@ pub struct RosCaptureContext {
     pub noise_sigma: f32,
     pub camera_info: TopicPublisher<CameraInfoTopic>,
     pub image_raw: TopicPublisher<ImageRawTopic>,
+    pub lesson04_truth: TopicPublisher<Lesson04TruthTopic>,
     pub image_compressed: TopicPublisher<ImageCompressedTopic>,
 }
 
@@ -157,6 +168,8 @@ impl Plugin for RosCapturePlugin {
                     .before(RenderSystems::Render),
             );
         app.sub_app_mut(RenderApp)
+            .init_resource::<super::lesson04_truth::Lesson04Truth>()
+            .add_systems(ExtractSchedule,super::lesson04_truth::extract_truth)
             .insert_resource(RosCaptureContextShared(Arc::new(self.context.clone())))
             .insert_resource(self.context.clone());
     }

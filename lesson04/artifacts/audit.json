@@ -1,0 +1,122 @@
+{
+  "static": {
+    "status": "PASS",
+    "horizon_ms": 250,
+    "pose_error_m": {
+      "count": 720,
+      "mean": 0.006398406612963467,
+      "median_upper": 0.006398406612963467,
+      "p95_order_statistic": 0.006398406612963467,
+      "max": 0.006398406612963467
+    },
+    "orientation_error_deg": {
+      "count": 720,
+      "mean": 0.017201250135687778,
+      "median_upper": 0.0172012501354,
+      "p95_order_statistic": 0.0172012501777,
+      "max": 0.0172012501777
+    },
+    "delayed_prediction_error_m": {
+      "count": 711,
+      "mean": 0.006397384063812332,
+      "median_upper": 0.006397384108192001,
+      "p95_order_statistic": 0.006397384108192001,
+      "max": 0.006397384108192001
+    },
+    "bracketing_lag_ms": {
+      "count": 711,
+      "mean": 13.075634097046413,
+      "median_upper": 11.345754,
+      "p95_order_statistic": 30.157469,
+      "max": 40.581093
+    },
+    "checks": [
+      "Integer nanosecond timestamps; strictly ordered unique observations",
+      "Every saved forecast was issued from a paired observation",
+      "due - issued equals the requested horizon exactly",
+      "Evaluation timestamp is at or after due timestamp",
+      "Truth interpolation bracket is at most 100 ms wide",
+      "3D Euclidean position and prediction errors recomputed from CSV"
+    ]
+  },
+  "translation": {
+    "status": "PASS",
+    "horizon_ms": 250,
+    "pose_error_m": {
+      "count": 780,
+      "mean": 0.027396178209659342,
+      "median_upper": 0.029629819910634205,
+      "p95_order_statistic": 0.05170645069444421,
+      "max": 0.054911923077783927
+    },
+    "orientation_error_deg": {
+      "count": 780,
+      "mean": 1.5620684146044321,
+      "median_upper": 1.42171635624,
+      "p95_order_statistic": 3.92775939201,
+      "max": 6.24667040294
+    },
+    "delayed_prediction_error_m": {
+      "count": 768,
+      "mean": 0.055514754000836636,
+      "median_upper": 0.06010245668570408,
+      "p95_order_statistic": 0.08805650474057314,
+      "max": 0.13626222857631182
+    },
+    "bracketing_lag_ms": {
+      "count": 768,
+      "mean": 13.444275884114584,
+      "median_upper": 12.373456,
+      "p95_order_statistic": 28.384578,
+      "max": 47.736594
+    },
+    "checks": [
+      "Integer nanosecond timestamps; strictly ordered unique observations",
+      "Every saved forecast was issued from a paired observation",
+      "due - issued equals the requested horizon exactly",
+      "Evaluation timestamp is at or after due timestamp",
+      "Truth interpolation bracket is at most 100 ms wide",
+      "3D Euclidean position and prediction errors recomputed from CSV"
+    ]
+  },
+  "horizon-100ms": {
+    "status": "PASS",
+    "horizon_ms": 100,
+    "pose_error_m": {
+      "count": 178,
+      "mean": 0.02595450369282797,
+      "median_upper": 0.029562444878422144,
+      "p95_order_statistic": 0.050982708561030744,
+      "max": 0.05303502818835124
+    },
+    "orientation_error_deg": {
+      "count": 178,
+      "mean": 1.6187906410719035,
+      "median_upper": 1.32990807909,
+      "p95_order_statistic": 4.02212113685,
+      "max": 6.24667040294
+    },
+    "delayed_prediction_error_m": {
+      "count": 170,
+      "mean": 0.028753080966502278,
+      "median_upper": 0.027732757790303025,
+      "p95_order_statistic": 0.05602450303499145,
+      "max": 0.059868917852984024
+    },
+    "bracketing_lag_ms": {
+      "count": 170,
+      "mean": 9.055182247058823,
+      "median_upper": 14.98498,
+      "p95_order_statistic": 17.220174,
+      "max": 17.859191
+    },
+    "checks": [
+      "Integer nanosecond timestamps; strictly ordered unique observations",
+      "Every saved forecast was issued from a paired observation",
+      "due - issued equals the requested horizon exactly",
+      "Evaluation timestamp is at or after due timestamp",
+      "Truth interpolation bracket is at most 100 ms wide",
+      "3D Euclidean position and prediction errors recomputed from CSV"
+    ]
+  }
+}

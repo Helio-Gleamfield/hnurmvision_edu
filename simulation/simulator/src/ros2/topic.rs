@@ -145,6 +145,7 @@ macro_rules! topic {
 topic!(
     pub {
         "/camera_info" as CameraInfo as CameraInfoTopic;
+        "/lesson04/ground_truth" as RosString as Lesson04TruthTopic;
         "/image_raw" as Image as ImageRawTopic;
         "/image_compressed" as CompressedImage as ImageCompressedTopic;
         "/livox/lidar" as PointCloud2 as LivoxPointCloudTopic;

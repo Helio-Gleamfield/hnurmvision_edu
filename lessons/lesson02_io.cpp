@@ -120,7 +120,8 @@ std::optional<SensorData> InputBuffer::take(TimePoint now, const Config& config)
   input_time_ = stamp;
   fresh_input_ = true;
   ++frames_;
-  return SensorData{std::move(bgr), stamp, aligned.q, aligned.speed};
+  return SensorData{std::move(bgr), stamp, aligned.q, aligned.speed,
+      static_cast<std::int64_t>(message->header.stamp.sec)*1000000000LL+message->header.stamp.nanosec};
 }
 
 Output InputBuffer::command(const Command& value, TimePoint now, const Config& config) const {

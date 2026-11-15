@@ -81,3 +81,5 @@ lesson03/build/armor_video INPUT.mp4 output.avi 300 show
 - 课程压缩包中的《第三讲 识别一块装甲板——OpenCV和神经网络入门》任务说明；本项目选择其中的 OpenCV 检测实现。
 - `3.2-OpenCV基础 (1).zip`：二值化、形态学、轮廓检测与最小外接矩形章节。
 - [课程原始仓库](https://github.com/Exusiai-R/hnurmvision_edu)。
+
+第四讲分支补充：为使图纸标称 135/225 mm 的物点与图像点一致，检测角点使用灯条外缘。第三讲提交版本仍见原 OpenCV 分支；本分支的历史第三讲统计仅作历史记录。

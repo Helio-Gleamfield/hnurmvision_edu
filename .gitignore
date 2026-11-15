@@ -30,3 +30,9 @@ lesson03/build/
 .venv*/
 __pycache__/
 !lesson03/artifacts/*.log
+
+# Lesson04 local captures and rebuild products
+lesson04/recordings/
+lesson04/artifacts/*.log
+!lesson04/artifacts/tests.log
+!lesson04/artifacts/pose-tests.log
