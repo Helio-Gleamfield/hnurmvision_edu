@@ -1,0 +1,16 @@
+Internal ctest changing into directory: /home/helio/RM_Lesson05_Work/repo/build
+Test project /home/helio/RM_Lesson05_Work/repo/build
+    Start 1: lesson02_contract
+1/5 Test #1: lesson02_contract ..................   Passed    0.00 sec
+    Start 2: lesson02_ros_inprocess
+2/5 Test #2: lesson02_ros_inprocess .............   Passed    0.21 sec
+    Start 3: lesson03_contract
+3/5 Test #3: lesson03_contract ..................   Passed    0.01 sec
+    Start 4: lesson04_pose_tracking
+4/5 Test #4: lesson04_pose_tracking .............   Passed    0.02 sec
+    Start 5: lesson05_ballistics_fire_control
+5/5 Test #5: lesson05_ballistics_fire_control ...   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Total Test time (real) =   0.24 sec

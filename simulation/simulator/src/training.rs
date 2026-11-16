@@ -74,6 +74,9 @@ pub fn move_targets(
             }
         }
         *initialized=true;
+        if std::env::var("RM_LESSON05_AUTOSTART").as_deref()==Ok("1") {
+            if let Some(b)=board.as_deref_mut() { b.0.running=true; }
+        }
     }
     if std::env::var("RM_LESSON04_FIXED_OBSERVER").as_deref()==Ok("1") {
         for (mut p,mut r,mut v,mut w) in observer.iter_mut() {

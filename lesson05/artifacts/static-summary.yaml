@@ -1,0 +1,7 @@
+scenario: static
+frames: 1795
+solution_frames: 1793
+fire_request_frames: 1674
+simulator_scoreboard: {running: true, scores: [{damage: 2660.0, hits: 266, off_target: 0, seconds: 36.81971972000003, shots: 266}, {damage: 0.0, hits: 0, off_target: 0, seconds: 0.0, shots: 0}, {damage: 0.0, hits: 0, off_target: 0, seconds: 0.0, shots: 0}], selected: 0}
+source: Actual simulator scoring, independent of vision/aiming
+score_fresh: true

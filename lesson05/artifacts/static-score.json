@@ -1,0 +1,27 @@
+{
+  "running": true,
+  "scores": [
+    {
+      "damage": 2660.0,
+      "hits": 266,
+      "off_target": 0,
+      "seconds": 36.81971972000003,
+      "shots": 266
+    },
+    {
+      "damage": 0.0,
+      "hits": 0,
+      "off_target": 0,
+      "seconds": 0.0,
+      "shots": 0
+    },
+    {
+      "damage": 0.0,
+      "hits": 0,
+      "off_target": 0,
+      "seconds": 0.0,
+      "shots": 0
+    }
+  ],
+  "selected": 0
+}

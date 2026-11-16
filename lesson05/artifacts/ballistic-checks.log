@@ -1,0 +1,27 @@
+Internal ctest changing into directory: /home/helio/RM_Lesson05_Work/repo/build
+UpdateCTestConfiguration  from :/home/helio/RM_Lesson05_Work/repo/build/CTestConfiguration.ini
+Parse Config file:/home/helio/RM_Lesson05_Work/repo/build/CTestConfiguration.ini
+ Add coverage exclude regular expressions.
+UpdateCTestConfiguration  from :/home/helio/RM_Lesson05_Work/repo/build/CTestConfiguration.ini
+Parse Config file:/home/helio/RM_Lesson05_Work/repo/build/CTestConfiguration.ini
+Test project /home/helio/RM_Lesson05_Work/repo/build
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 5
+    Start 5: lesson05_ballistics_fire_control
+
+5: Test command: /home/helio/RM_Lesson05_Work/repo/build/lesson05_tests
+5: Test timeout computed to be: 1500
+5: PASS: 80 ballistic, timing and fire-control checks
+1/1 Test #5: lesson05_ballistics_fire_control ...   Passed    0.00 sec
+
+The following tests passed:
+	lesson05_ballistics_fire_control
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.00 sec

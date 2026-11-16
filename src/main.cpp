@@ -1,4 +1,5 @@
 #include "armor_detector.hpp"
+#include "aiming.hpp"
 #include "evaluation.hpp"
 #include "io_context.hpp"
 #include "lessons.hpp"
@@ -20,8 +21,10 @@ int main(int argc, char **argv) try {
   const auto calibration = training::load_calibration(config);
   training::io::IoContext devices{config};
   training::TrackingState tracking;
+  training::FireControl fire;
   tracking.parameters.use_tilt_prior = true;
   devices.open();
+  auto last_input=training::Clock::now();
   training::Lesson04Evaluation evaluation;
   if (devices.config.display) {
     cv::namedWindow("RoboMaster camera (view only; control in simulator)",
@@ -36,6 +39,7 @@ int main(int argc, char **argv) try {
     training::Command command{};
     cv::Mat annotated;
     if (input) {
+      last_input=training::Clock::now();
       const auto armors = training::lesson03_detection(input->image);
       annotated = training::draw_armors(input->image, armors);
       const auto target = training::lesson04_tracking(
@@ -43,13 +47,18 @@ int main(int argc, char **argv) try {
       evaluation.observe(*input, tracking, calibration);
       annotated = training::draw_tracking(annotated, *input, tracking,
                                           calibration, evaluation.view());
-      if (target)
-        command = training::lesson05_aiming(*target, input->timestamp,
-                                            input->bullet_speed);
+      if (target) {
+        const auto solution=training::solve_aim(*target,input->timestamp,input->bullet_speed,input->imu_q);
+        command=fire.update(solution,input->imu_q,
+            tracking.phase==training::TrackingState::Phase::Tracking && bool(tracking.observation),tracking.generation);
+      } else fire.reset();
     }
     if (interrupted)
       break;
-    devices.write(command);
+    if (input) devices.write(command);
+    else if (training::Clock::now()-last_input>std::chrono::milliseconds(200)) {
+      fire.reset();devices.write(training::Command{});
+    }
 
     if (devices.config.display) {
       if (input)

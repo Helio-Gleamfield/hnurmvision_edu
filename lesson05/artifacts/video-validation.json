@@ -1,0 +1,27 @@
+{
+  "static/desktop.mp4": {
+    "decode_ok": true,
+    "bytes": 3295229,
+    "errors": "",
+    "media_info": "Analyzing file:///home/helio/RM_Lesson05_Work/final-recording/static/desktop.mp4\nDone discovering file:///home/helio/RM_Lesson05_Work/final-recording/static/desktop.mp4\n\nProperties:\n  Duration: 0:00:30.000000000\n  Seekable: yes\n  Live: no\n  container #0: Quicktime\n    video #1: H.264 (High Profile)\n      Stream ID: ce4a0e7bdd4735e19fa68e9fc6ce42f75402a9b40f0de86f74547ec854c32366/001\n      Width: 1440\n      Height: 1120\n      Depth: 24\n      Frame rate: 25/1\n      Pixel aspect ratio: 1/1\n      Interlaced: false\n      Bitrate: 0\n      Max bitrate: 876091\n\n"
+  },
+  "translation/desktop.mp4": {
+    "decode_ok": true,
+    "bytes": 7372307,
+    "errors": "",
+    "media_info": "Analyzing file:///home/helio/RM_Lesson05_Work/final-recording/translation/desktop.mp4\nDone discovering file:///home/helio/RM_Lesson05_Work/final-recording/translation/desktop.mp4\n\nProperties:\n  Duration: 0:00:30.000000000\n  Seekable: yes\n  Live: no\n  container #0: Quicktime\n    video #1: H.264 (High Profile)\n      Stream ID: 5155a799d2261757da983ae51d2aa5bfb96d2f76c76b55729bd8c6f9dc49f7e8/001\n      Width: 1440\n      Height: 1120\n      Depth: 24\n      Frame rate: 25/1\n      Pixel aspect ratio: 1/1\n      Interlaced: false\n      Bitrate: 0\n      Max bitrate: 1963297\n\n"
+  },
+  "lesson05-static-and-translation.mp4": {
+    "decode_ok": true,
+    "bytes": 10666915,
+    "errors": "",
+    "media_info": "Analyzing file:///home/helio/RM_Lesson05_Work/final-recording/lesson05-static-and-translation.mp4\nDone discovering file:///home/helio/RM_Lesson05_Work/final-recording/lesson05-static-and-translation.mp4\n\nProperties:\n  Duration: 0:01:00.000000000\n  Seekable: yes\n  Live: no\n  container #0: Quicktime\n    video #1: H.264 (High Profile)\n      Stream ID: d02ad4acc479161b60b7610a26714b9e15b08346c8f95d8a4d1948a75463b543/001\n      Width: 1440\n      Height: 1120\n      Depth: 24\n      Frame rate: 25/1\n      Pixel aspect ratio: 1/1\n      Interlaced: false\n      Bitrate: 1419725\n      Max bitrate: 1419725\n\n"
+  },
+  "repository-compressed-60s.mp4": {
+    "decode_ok": true,
+    "bytes": 1208233,
+    "sha256": "366d9b2d9e8c3ad87137724a25b443d0a7f99f83aab8feabf46d6655992587c4",
+    "errors": "",
+    "media_info": "Analyzing file:///home/helio/RM_Lesson05_Work/repo/lesson05/artifacts/00-static-and-translation-60s.mp4\nDone discovering file:///home/helio/RM_Lesson05_Work/repo/lesson05/artifacts/00-static-and-translation-60s.mp4\n\nProperties:\n  Duration: 0:01:00.000000000\n  Seekable: yes\n  Live: no\n  container #0: Quicktime\n    video #1: H.264 (High Profile)\n      Stream ID: fa9f5e5b4dab2858693c2d11bd320ecb772fcd5c96fd05a36f0f701d493e33df/001\n      Width: 900\n      Height: 700\n      Depth: 24\n      Frame rate: 12/1\n      Pixel aspect ratio: 1/1\n      Interlaced: false\n      Bitrate: 0\n      Max bitrate: 159837\n\n"
+  }
+}

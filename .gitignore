@@ -36,3 +36,8 @@ lesson04/recordings/
 lesson04/artifacts/*.log
 !lesson04/artifacts/tests.log
 !lesson04/artifacts/pose-tests.log
+
+/build-copied-from-lesson04/
+lesson05/recordings/
+!lesson05/artifacts/tests.log
+!lesson05/artifacts/ballistic-checks.log

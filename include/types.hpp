@@ -47,6 +47,6 @@ struct Command {
   bool control = false;
   bool shoot = false;
   double yaw = 0;    // 稳定系绝对偏航，左转为正
-  double pitch = 0;  // 稳定系绝对仰角，向上为正；线上 pitch 符号相反
+  double pitch = 0;  // 云台绝对仰角，向上为正；弹丸仰角需加25度安装角，线上符号相反
 };
 }  // namespace training

@@ -1,0 +1,55 @@
+{
+  "static": {
+    "status": "PASS",
+    "shots": 266,
+    "armor_hits": 266,
+    "accuracy_percent": 100.0,
+    "off_target": 0,
+    "damage": 2660.0,
+    "unresolved_projectiles": 0,
+    "impact_types": {
+      "Armor": 266
+    },
+    "camera_frames": 1795,
+    "controlled_frames": 1793,
+    "fire_request_frames": 1674,
+    "measured_image_age_ms_mean": 39.290272281093145,
+    "lead_ms_mean": 147.6646224205242,
+    "actual_flight_ms_mean": 108.68511924739498,
+    "checks": [
+      "Unique launches and impacts; no unresolved shots",
+      "Independent collision events match simulator scoreboard",
+      "25m/s, g=9.81, 17mm projectile, swept collision unchanged",
+      "Measured acquisition age plus ballistic flight; no gimbal lag in lead",
+      "World absolute angle and IO pitch sign",
+      "Feedback-gated shooting and final projectile drain"
+    ]
+  },
+  "translation": {
+    "status": "PASS",
+    "shots": 237,
+    "armor_hits": 231,
+    "accuracy_percent": 97.46835443037975,
+    "off_target": 0,
+    "damage": 2310.0,
+    "unresolved_projectiles": 0,
+    "impact_types": {
+      "Armor": 231,
+      "Body": 6
+    },
+    "camera_frames": 1782,
+    "controlled_frames": 1758,
+    "fire_request_frames": 1142,
+    "measured_image_age_ms_mean": 40.92928014789528,
+    "lead_ms_mean": 150.0339448236632,
+    "actual_flight_ms_mean": 109.75311088792131,
+    "checks": [
+      "Unique launches and impacts; no unresolved shots",
+      "Independent collision events match simulator scoreboard",
+      "25m/s, g=9.81, 17mm projectile, swept collision unchanged",
+      "Measured acquisition age plus ballistic flight; no gimbal lag in lead",
+      "World absolute angle and IO pitch sign",
+      "Feedback-gated shooting and final projectile drain"
+    ]
+  }
+}

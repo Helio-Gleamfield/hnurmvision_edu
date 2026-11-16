@@ -19,6 +19,7 @@ pub fn extract_truth(
     camera: Extract<Single<&GlobalTransform, With<CaptureCamera>>>,
     gimbal: Extract<Single<&GlobalTransform, (With<Controlled>, With<InfantryGimbal>)>>,
     time: Extract<Res<Time<Fixed>>>,
+    board: Extract<Res<crate::scoreboard::Board>>,
 ) {
     let cam = **camera;
     let gim = **gimbal;
@@ -62,6 +63,11 @@ pub fn extract_truth(
         "sim_time": time.elapsed_secs_f64(), "plates": plates,
         "camera_world_bevy": cam.translation().to_array(),
         "gimbal_world_bevy": gim.translation().to_array(),
-        "gimbal_quat_bevy_xyzw": q.to_array()
+        "gimbal_quat_bevy_xyzw": q.to_array(),
+        "scoreboard": {"selected":board.0.selected,"running":board.0.running,
+            "scores":board.0.scores.iter().map(|s|serde_json::json!({
+                "shots":s.shots,"hits":s.hits,"damage":s.damage,
+                "off_target":s.off_target,"seconds":s.seconds
+            })).collect::<Vec<_>>()}
     })));
 }
